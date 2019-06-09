@@ -7,6 +7,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 // pull in API routes
+const npsRoute = require("./routes/npsAPI");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // }
 
 // Define API routes here
+app.use("/api/nps", npsRoute);
 
 
 // Connect to the Mongo DB
@@ -26,9 +28,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
