@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 
 // pull in API routes
 const npsRoute = require("./routes/npsAPI");
+const weatherRoute = require("./routes/weatherAPI");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Define API routes here
 app.use("/api/nps", npsRoute);
+app.use("/api/weather", weatherRoute);
 
 
 // Connect to the Mongo DB
