@@ -30,6 +30,36 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  // find park by parkcode
+  findByCode: function (req, res) {
+    let query = req.params.parkcode;
+    const qType = "parks?parkCode=";
+    const api = "&api_key=" + apiKey;
+    let qString = baseURL + qType + query + api;
+    axios.get(qString)
+      .then(function (response) {
+        res.json(response.data);
+      })
+      .catch(err => res.status(422).json(err));
+  },
+
+  // find weather by parkcode
+  weatherByCode: function (req, res) {
+    let query = req.params.parkcode;
+    const qType = "parks?parkCode=";
+    const api = "&api_key=" + apiKey;
+    let qString = baseURL + qType + query + api;
+    axios.get(qString)
+      .then(function (response) {
+        let latLong = response.data.data[0].latLong;
+        // need to parse out lat and longitude data
+
+        // then need to pass that over to weather api endpoint
+        axios.get()
+      } )
+
+  },
+
   // list campgrounds for a given park code
   listCampgrounds: function (req, res) {
     let query = req.params.parkcode;

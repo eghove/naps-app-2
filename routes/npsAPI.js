@@ -9,6 +9,10 @@ router.route("/keyword/:name")
 router.route("/state/:state")
   .get(npsController.findByState);
 
+// route to return park by park code
+router.route("/park/:parkcode")
+  .get(npsController.findByCode);
+
 // route to get campgrounds for a given park
 router.route("/campgrounds/:parkcode")
   .get(npsController.listCampgrounds);

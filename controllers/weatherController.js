@@ -12,7 +12,6 @@ module.exports = {
         let cwa = response.data.properties.cwa;
         let gridX = response.data.properties.gridX;
         let gridY = response.data.properties.gridY;
-        // console.log("cwa: " + cwa + " gridX: " + gridX + " gridY: " + gridY);
         let qString2 = gridBaseURL + cwa + "/" + gridX + "," + gridY + "/forecast";
         axios.get(qString2)
           .then(function (response) {
