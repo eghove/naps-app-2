@@ -17,4 +17,8 @@ router.route("/park/:parkcode")
 router.route("/campgrounds/:parkcode")
   .get(npsController.listCampgrounds);
 
+// route to get weather for a given park code
+router.route("/weather/:parkcode")
+  .get(npsController.weatherByCode);
+
 module.exports = router;
