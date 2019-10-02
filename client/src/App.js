@@ -13,11 +13,13 @@ import Bad404Page from './pages/bad_404/Bad404Page';
 // shared components
 import NavBar from './shared_components/NavBar/NavBar';
 
+
 // import api from './utils/api.js';
 
 // styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
 
 
 // api.test();
