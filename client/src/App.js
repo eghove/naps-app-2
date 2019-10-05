@@ -23,25 +23,44 @@ import './App.css';
 
 
 // api.test();
-function App() {
-  return (
-    <div className="App">
-      <Container>
-        <NavBar></NavBar>
-     
-        <Router>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/about" component={AboutPage} />
-            <Route exact path="/details/:parkcode" component={DetailsPage} />
-            <Route default component={Bad404Page} />
-          </Switch>
-        </Router>
+class App extends React.Component {
+  state = {
+    currentSearchTerm: ''
+  }
 
-      </Container>
+  // updater functions
+  updateCurrentSearchTerm = (term) => {
+    // TO DO: Some sort of parser to make sure the search term can be used by API
 
-    </div>
-  );
+    // set the state to the current term
+    this.setState({ currentSearchTerm: term });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Container>
+          <NavBar></NavBar>
+
+          <Router>
+            <Switch>
+              <Route exact path="/"
+                render={props => <HomePage updateCurrentSearch={this.updateCurrentSearchTerm} />} />
+              <Route exact path="/about" component={AboutPage} />
+              <Route exact path="/details/:parkcode" component={DetailsPage} />
+              <Route default component={Bad404Page} />
+            </Switch>
+          </Router>
+
+        </Container>
+
+      </div>
+    )
+
+
+  }
+
+
 }
 
 export default App;
