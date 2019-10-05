@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 
 function NavBar() {
   return (
-    <Navbar bg="light" expand="lg" >
+    <Navbar bg="light" fixed ="top" expand="lg" >
       <Navbar.Brand href="/">NaPS App 2.0</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
