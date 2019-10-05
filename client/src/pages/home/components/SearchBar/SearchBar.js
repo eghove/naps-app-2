@@ -10,12 +10,11 @@ function SearchBar(props) {
     <Row>
       <Col xs={10}>
         <Form>
-          <FormControl type="text" placeholder={props.placeholder} />
-
+          <FormControl type="text" placeholder={props.placeholder} onChange={props.updateCurrentSearch}/>
         </Form>
       </Col>
       <Col xs={2}>
-        <Button inline variant="outline-success">Search</Button>
+        <Button variant="outline-success" onClick={props.updateSearchedTerm}>Search</Button>
       </Col>
 
 

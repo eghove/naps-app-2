@@ -7,7 +7,7 @@ import ResultsDisplay from './components/ResultsDisplay/ResultsDisplay';
 
 
 
-function HomePage() {
+function HomePage(props) {
   return (
     <Row className="homePage-container">
       <Col xs={12}>
@@ -16,7 +16,9 @@ function HomePage() {
           hero={"Use the search bar below to learn more about the National Parks of the United States."}
         />
         <SearchBar
-          placeholder={"Search for a National Park using keywords or by state!"}
+          placeholder={"Search for a National Park using keywords! (Try 'Grand')"}
+          updateCurrentSearch={props.updateCurrentSearch}
+          updateSearchedTerm={props.updateSearchedTerm}
         
         />
         <ResultsDisplay 
