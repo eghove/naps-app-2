@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import JumbotronHome from './components/JumbotronHome/JumbotronHome';
 import SearchBar from './components/SearchBar/SearchBar';
+import ResultsDisplay from './components/ResultsDisplay/ResultsDisplay';
 
 
 
@@ -18,13 +19,12 @@ function HomePage() {
           placeholder={"Search for a National Park using keywords or by state!"}
         
         />
+        <ResultsDisplay 
+        
+        />
 
       </Col>
     </Row>
-
-
-    // Search Bar
-    // Results Display
   )
 }
 
