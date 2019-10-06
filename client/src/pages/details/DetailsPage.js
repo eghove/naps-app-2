@@ -2,9 +2,14 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 // custom components
+import BasicParkInfo from './components/BasicParkInfo/BasicParkInfo';
+import GeneralWeatherInfo from './components/GeneralWeatherInfo/GeneralWeatherInfo';
+import DetailedWeatherForecast, {WeatherForecastItem} from './components/DetailedWeatherForecast/DetailedWeatherForecast'
+import CampgroundsInfo, {CampgroundItem} from './components/CampgroundsInfo/CampgroundsInfo';
 
 // utilities
 import api from '../../utils/apiParkDetail';
+
 
 
 class DetailsPage extends React.Component {
@@ -69,10 +74,41 @@ class DetailsPage extends React.Component {
           </Col>
           :
           <Col md={12}>
-            <h2>Api Call Successful</h2>
-            {console.log(this.state.npsBasicData)}
-            {console.log(this.state.weatherForecast)}
+            <BasicParkInfo
+             heading={this.state.npsBasicData.data[0].fullName}
+             description={this.state.npsBasicData.data[0].description}
+            />
+            <GeneralWeatherInfo
+              weatherInfo={this.state.npsBasicData.data[0].weatherInfo}
+            />
+            <DetailedWeatherForecast>
+              {this.state.weatherForecast.map(weather=>{
+                return(
+                  <WeatherForecastItem 
+                    name = {weather.name}
+                    temperature={weather.temperature}
+                    forecast={weather.detailedForecast}
+                  />
+                )
+              })}
+
+            </DetailedWeatherForecast>
+
+            <CampgroundsInfo>
+              {this.state.campgrounds.map(camp=>{
+                return(
+                  <CampgroundItem 
+                    name={camp.name}
+                    description={camp.description}
+                  
+                  />
+                )
+              })}
+            </CampgroundsInfo>
+
             {console.log(this.state.campgrounds)}
+
+
           </Col>}
       </Row>
     )
