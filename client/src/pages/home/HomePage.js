@@ -6,11 +6,9 @@ import Col from 'react-bootstrap/Col';
 import JumbotronHome from './components/JumbotronHome/JumbotronHome';
 import SearchBar from './components/SearchBar/SearchBar';
 import ResultsDisplay, { ResultsDisplayItem } from './components/ResultsDisplay/ResultsDisplay';
+// import local styling
+import './homepage.css';
 
-let test = [{
-  parkName: "Test Name",
-  parkDesc: "Test Description"
-}]
 
 
 function HomePage(props) {

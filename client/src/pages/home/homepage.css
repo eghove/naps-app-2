@@ -1,0 +1,21 @@
+
+.homePage-container .jumbotron {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgba(224, 248, 255, 0.2);
+}
+
+.homePage-container .searchBarHolder {
+  margin-top: 2rem;
+}
+
+.homePage-container .list-group {
+  margin-top: 4rem;
+  text-align: left;
+  padding-bottom: 1rem;
+}
+
+.homePage-container .list-group-item{
+  margin-bottom: 1rem;
+}

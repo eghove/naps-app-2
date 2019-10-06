@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 function SearchBar(props) {
   return (
-    <Row>
+    <Row className="searchBarHolder">
       <Col xs={10}>
         <Form>
           {/* alsos need to set this up so if the user presses return, it instigates the search as well */}
@@ -15,7 +15,7 @@ function SearchBar(props) {
         </Form>
       </Col>
       <Col xs={2}>
-        <Button variant="outline-success" onClick={props.updateSearchedTerm}>Search</Button>
+        <Button variant="success" onClick={props.updateSearchedTerm}>Search</Button>
       </Col>
 
 

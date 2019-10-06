@@ -26,10 +26,8 @@ export function ResultsDisplayItem({ park_name, park_description, park_code }) {
           <h2>{park_name}</h2>
           <p>
             {park_description}
-            {/* <Button
-              data-id={park_code}>
-                Learn More!
-            </Button> */}
+          </p>
+          <p className="float-right">
             <a href={"/details/" + park_code}>Learn More!</a>
           </p>
         </Col>
