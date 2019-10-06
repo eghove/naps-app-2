@@ -37,7 +37,7 @@ class DetailsPage extends React.Component {
     parkcode = parkcode.toString();
     api.weatherInfo(parkcode)
       .then(results => {
-        this.setState({ weatherForecast: results.data.properties.periods })
+        this.setState({ weatherForecast: results.data.properties.periods.slice(0,7) })
       })
       .catch(error => console.log(error))
   }
@@ -107,11 +107,19 @@ class DetailsPage extends React.Component {
                     <CampgroundItem
                       name={camp.name}
                       description={camp.description}
-
+                      totalsites={camp.campsites.totalsites}
+                      tentsites = {camp.campsites.tentonly}
+                      electrical = {camp.campsites.electricalhookups}
+                      potablewater = {camp.amenities.potablewater[0]}
+                      showers = {camp.amenities.showers[0]}
+                      cellservice = {camp.amenities.cellphonereception}
+                      
                     />
+                    
                   )
                 })}
               </CampgroundsInfo>
+              
               : 
               <p>No campgrounds found for this park!</p>
             }
@@ -119,7 +127,7 @@ class DetailsPage extends React.Component {
 
 
 
-
+            {console.log(this.state.campgrounds)}
           </Col>}
       </Row>
     )

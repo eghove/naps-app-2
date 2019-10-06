@@ -11,3 +11,15 @@
   text-align: left;
   opacity: .90;
 }
+
+.detailsPage-container .weatherForecastHolder {
+  text-align: left;
+  opacity: .90;
+  margin-top: 2rem;
+}
+
+
+.detailsPage-container .weatherForecastHolder h3 {
+  text-align: center;
+  
+}
