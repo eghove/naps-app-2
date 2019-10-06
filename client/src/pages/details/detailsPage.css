@@ -1,0 +1,13 @@
+.detailsPage-container .jumbotron {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: left;
+  opacity: .90;
+}
+
+
+.detailsPage-container .generalInfoRow .card {
+  text-align: left;
+  opacity: .90;
+}
