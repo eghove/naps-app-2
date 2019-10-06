@@ -48,11 +48,15 @@ class App extends React.Component {
 
     // TO DO: More logic checks to make sure
     if (this.state.currentSearchTerm !== '') {
-      this.setState({ searchedTerm: this.state.currentSearchTerm },
+      this.setState({
+        searchedTerm: this.state.currentSearchTerm,
+        // clear out search results 
+        searchResults: []
+      },
         () => {
           // console.log(this.state.searchedTerm);
           api.keywordSearch(this.state.searchedTerm)
-            .then(results => this.setState({ searchResults: results.data.data }, ()=> console.log(this.state.searchResults)))
+            .then(results => this.setState({ searchResults: results.data.data }, () => console.log(this.state.searchResults)))
             // .then(results=> console.log(results.data.data))
             .catch(error => console.log(error));
         });

@@ -33,6 +33,7 @@ function HomePage(props) {
               <ResultsDisplayItem
                 park_name={parks.fullName}
                 park_description={parks.description}
+                park_code = {parks.parkCode}
               
               
               />
