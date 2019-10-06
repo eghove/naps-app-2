@@ -1,10 +1,16 @@
 import React from 'react';
+// bootstrap components
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+// custom components
 import JumbotronHome from './components/JumbotronHome/JumbotronHome';
 import SearchBar from './components/SearchBar/SearchBar';
-import ResultsDisplay from './components/ResultsDisplay/ResultsDisplay';
+import ResultsDisplay, { ResultsDisplayItem } from './components/ResultsDisplay/ResultsDisplay';
 
+let test = [{
+  parkName: "Test Name",
+  parkDesc: "Test Description"
+}]
 
 
 function HomePage(props) {
@@ -21,9 +27,20 @@ function HomePage(props) {
           updateSearchedTerm={props.updateSearchedTerm}
         
         />
-        <ResultsDisplay 
-        
-        />
+        <ResultsDisplay>
+          {props.searchResults.map(parks=>{
+            return (
+              <ResultsDisplayItem
+                park_name={parks.fullName}
+                park_description={parks.description}
+              
+              
+              />
+
+              
+            )
+          })}
+        </ResultsDisplay>
 
       </Col>
     </Row>

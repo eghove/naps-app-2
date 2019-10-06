@@ -10,6 +10,7 @@ function SearchBar(props) {
     <Row>
       <Col xs={10}>
         <Form>
+          {/* alsos need to set this up so if the user presses return, it instigates the search as well */}
           <FormControl type="text" placeholder={props.placeholder} onChange={props.updateCurrentSearch}/>
         </Form>
       </Col>
