@@ -6,6 +6,15 @@
   opacity: .90;
 }
 
+.detailsPage-container .spinnerHolder {
+  margin-top: 10rem;
+}
+
+.detailsPage-container .spinnerHolder .spinner-border{
+  width: 5rem; 
+  height: 5rem;
+}
+
 
 .detailsPage-container .generalInfoRow .card {
   text-align: left;

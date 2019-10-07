@@ -11,6 +11,7 @@ import CampgroundsInfo, { CampgroundItem, NoCampgroundsFound } from './component
 import api from '../../utils/apiParkDetail';
 // styling
 import './detailsPage.css';
+import LoadingSpinner from '../../shared_components/LoadingSpinner/LoadingSpinner';
 
 
 class DetailsPage extends React.Component {
@@ -75,8 +76,8 @@ class DetailsPage extends React.Component {
       <Row className="detailsPage-container">
         {this.state.npsBasicData.length === 0 || this.state.weatherForecast.length === 0 || this.state.campgroundsExist === null
           ?
-          <Col md={12}>
-            <h2>Loading...</h2>
+          <Col className={"spinnerHolder"} md={12}>
+            <LoadingSpinner></LoadingSpinner>
           </Col>
           :
           <Col md={12}>
