@@ -12,6 +12,18 @@ function GeneralWeatherInfo(props) {
         <Card>
           <Card.Body>
             <Card.Title>
+              <h3>Park Description</h3>
+            </Card.Title>
+            <Card.Text>
+              <p>{props.parkDescription}</p>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
+      <Col md={6}>
+        <Card>
+          <Card.Body>
+            <Card.Title>
               <h3>General Weather Information</h3>
             </Card.Title>
             <Card.Text>
@@ -19,8 +31,6 @@ function GeneralWeatherInfo(props) {
             </Card.Text>
           </Card.Body>
         </Card>
-
-
       </Col>
     </Row>
   )

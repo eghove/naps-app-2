@@ -83,10 +83,11 @@ class DetailsPage extends React.Component {
           <Col md={12}>
             <BasicParkInfo
               heading={this.state.npsBasicData.data[0].fullName}
-              description={this.state.npsBasicData.data[0].description}
+              
             />
             <GeneralWeatherInfo
               weatherInfo={this.state.npsBasicData.data[0].weatherInfo}
+              parkDescription={this.state.npsBasicData.data[0].description}
             />
             <DetailedWeatherForecast>
               {this.state.weatherForecast.map(weather => {
