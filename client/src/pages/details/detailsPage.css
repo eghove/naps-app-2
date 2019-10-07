@@ -21,5 +21,32 @@
 
 .detailsPage-container .weatherForecastHolder h3 {
   text-align: center;
-  
 }
+
+.detailsPage-container .campgroundResultsHolder {
+  padding-bottom: 2rem;
+}
+
+.detailsPage-container .campgroundResultsHolder h3 {
+ margin-top: 2rem;
+ padding: 1rem;
+ opacity: .90;
+}
+
+
+.detailsPage-container .campgroundResults {
+  margin-top: 2rem;
+}
+
+.detailsPage-container .campgroundResults .card-title{
+  text-align: left;
+}
+
+.detailsPage-container .campgroundResults .subheader{
+  font-weight: bold;
+}
+
+.detailsPage-container .campgroundResults .card{
+  opacity: .90;
+}
+

@@ -6,9 +6,9 @@ import Card from 'react-bootstrap/Card';
 
 function CampgroundsInfo({ children }) {
   return (
-    <Row>
+    <Row className="campgroundResultsHolder">
       <Col md={12}>
-        <h3>Campgrounds</h3>
+        <h3 className="card">Campgrounds</h3>
         <ListGroup>{children}</ListGroup>
 
       </Col>
@@ -27,23 +27,24 @@ export function CampgroundItem({ name, description, totalsites, tentsites, elect
     //     </Col>
     //   </Row>
     // </ListGroup.Item>
-    <Row>
+    <Row className="campgroundResults">
       <Col md={12}>
         <Card>
           <Card.Body>
             <Card.Title>{name}</Card.Title>
+            <hr/>
 
             <Row>
               <Col md={6}>
                 <Card.Text className="text-left">
-                  <p>Description</p>
+                  <p className="subheader">Description</p>
                   <p>{description}</p>
                 </Card.Text>
               </Col>
               <Col md={1}></Col>
               <Col md={5}>
                 <Card.Text className="text-left">
-                  <p>Quick Facts:</p>
+                  <p className="subheader">Quick Facts:</p>
                   <ul>
                     <li>Total Sites: {totalsites}</li>
                     <li>Tent Only Sites: {tentsites}</li>
