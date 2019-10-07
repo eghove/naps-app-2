@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import BasicParkInfo from './components/BasicParkInfo/BasicParkInfo';
 import GeneralWeatherInfo from './components/GeneralWeatherInfo/GeneralWeatherInfo';
 import DetailedWeatherForecast, { WeatherForecastItem } from './components/DetailedWeatherForecast/DetailedWeatherForecast'
-import CampgroundsInfo, { CampgroundItem } from './components/CampgroundsInfo/CampgroundsInfo';
+import CampgroundsInfo, { CampgroundItem, NoCampgroundsFound } from './components/CampgroundsInfo/CampgroundsInfo';
 
 // utilities
 import api from '../../utils/apiParkDetail';
@@ -121,7 +121,7 @@ class DetailsPage extends React.Component {
               </CampgroundsInfo>
               
               : 
-              <p>No campgrounds found for this park!</p>
+              <NoCampgroundsFound></NoCampgroundsFound>
             }
 
 

@@ -19,20 +19,13 @@ export default CampgroundsInfo;
 
 export function CampgroundItem({ name, description, totalsites, tentsites, electrical, potablewater, showers, cellservice }) {
   return (
-    // <ListGroup.Item>
-    //   <Row>
-    //     <Col md={12}>
-    //       <h4>{name}</h4>
-    //       <p>{description}</p>
-    //     </Col>
-    //   </Row>
-    // </ListGroup.Item>
+
     <Row className="campgroundResults">
       <Col md={12}>
         <Card>
           <Card.Body>
             <Card.Title>{name}</Card.Title>
-            <hr/>
+            <hr />
 
             <Row>
               <Col md={6}>
@@ -60,6 +53,16 @@ export function CampgroundItem({ name, description, totalsites, tentsites, elect
 
           </Card.Body>
         </Card>
+      </Col>
+    </Row>
+  )
+}
+
+export function NoCampgroundsFound() {
+  return (
+    <Row className="campgroundResultsHolder">
+      <Col md={12}>
+        <h3 className="card">No Campgrounds Found!</h3>
       </Col>
     </Row>
   )
