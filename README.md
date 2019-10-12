@@ -10,17 +10,20 @@ Additional updates are coming.
 
 NaPS App 2.0 last updated on 2019-10-12.
 
+A deployed version may be found at: https://safe-waters-09131.herokuapp.com/ .
+
 ## Work Log
 
 ### Done
 
-### To-Do
-#### Version 2.a (Base Version) -- IN PROGRESS
+#### Version 2.0 (Base Version) -- Deployed 2019-10-12
 * User can search for national parks based on keyword.
 * App displays a list of results
 * When the user selects a park in the results list, they are provided with additional information about the park and a 3 to 5 day weather forecast.
 * Essentially three pages on the front end: Main page with the search and results, a detail page, and an About page
 * Local storage for last search results to ease navigation
+
+### To-Do
 
 #### Version 2.b (Authentication)
 * Done + authentication, likely through firebase.
