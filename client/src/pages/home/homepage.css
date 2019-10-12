@@ -19,3 +19,12 @@
 .homePage-container .list-group-item{
   margin-bottom: 1rem;
 }
+
+.homePage-container .spinnerHolder {
+  margin-top: 5rem;
+}
+
+.homePage-container .spinnerHolder .spinner-border{
+  width: 5rem; 
+  height: 5rem;
+}

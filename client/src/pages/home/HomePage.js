@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import JumbotronHome from './components/JumbotronHome/JumbotronHome';
 import SearchBar from './components/SearchBar/SearchBar';
 import ResultsDisplay, { ResultsDisplayItem } from './components/ResultsDisplay/ResultsDisplay';
+import LoadingSpinner from '../../shared_components/LoadingSpinner/LoadingSpinner';
 
 // API utility
 import api from '../../utils/api';
@@ -23,7 +24,9 @@ class HomePage extends React.Component {
     // keeps track of the search term once user presses search
     searchedTerm: '',
     // array that keeps the search results
-    searchResults: []
+    searchResults: [],
+    // variable that keeps track of search status [searching, no_results, some_results],
+    searchStatus: null
   }
 
   // ====HOME PAGE FUNCTIONS====
@@ -48,9 +51,11 @@ class HomePage extends React.Component {
         searchResults: []
       },
         () => {
-          // console.log(this.state.searchedTerm);
+          // set the searchStatus
+          this.setState({searchStatus: "searching"});
           api.keywordSearch(this.state.searchedTerm)
-            .then(results => this.setState({ searchResults: results.data.data }, () => console.log(this.state.searchResults)))
+            .then(results => this.setState({ searchResults: results.data.data }, 
+              () => this.setState({searchStatus: "some_results"})))
             // .then(results=> console.log(results.data.data))
             .catch(error => console.log(error));
         });
@@ -72,7 +77,14 @@ class HomePage extends React.Component {
             updateSearchedTerm={this.updateSearchedTerm}
 
           />
-
+          {this.state.searchStatus === "searching" ? 
+            <Row>
+              <Col className={"spinnerHolder"} md={12}>
+                <LoadingSpinner></LoadingSpinner>
+              </Col>
+            </Row>
+            : null
+            }
           <ResultsDisplay>
             {this.state.searchResults.map(parks => {
               return (
