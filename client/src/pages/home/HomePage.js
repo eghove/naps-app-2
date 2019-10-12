@@ -141,6 +141,7 @@ class HomePage extends React.Component {
               {this.state.searchResults.map(parks => {
                 return (
                   <ResultsDisplayItem
+                    key = {parks.parkCode}
                     park_name={parks.fullName}
                     park_description={parks.description}
                     park_code={parks.parkCode}

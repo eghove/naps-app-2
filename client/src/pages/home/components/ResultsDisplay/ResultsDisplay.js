@@ -21,7 +21,7 @@ export default ResultsDisplay;
 export function ResultsDisplayItem({ park_name, park_description, park_code }) {
   return (
     <ListGroup.Item>
-      <Row>
+      <Row >
         <Col md={12}>
           <h2>{park_name}</h2>
           <p>
