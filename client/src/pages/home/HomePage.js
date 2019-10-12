@@ -44,7 +44,7 @@ class HomePage extends React.Component {
 
     // set the state to the current term
     this.setState({ currentSearchTerm: value },
-      () => { console.log(this.state.currentSearchTerm); });
+      () => {});
   }
 
   updateSearchedTerm = (event) => {
@@ -55,7 +55,9 @@ class HomePage extends React.Component {
       this.setState({
         searchedTerm: this.state.currentSearchTerm,
         // clear out search results 
-        searchResults: []
+        searchResults: [],
+        // clear the pastSearch heading
+        pastSearch: false
       },
         () => {
           // set the searchStatus
@@ -145,12 +147,15 @@ class HomePage extends React.Component {
 
           {this.state.pastSearch === true ?
             <Row >
-              <Col md={12} className={"text-holder"}>
-                <h2>Prior search results:</h2>
+              <Col md={12}>
+                <div className={"text-holder"}>
+                  <h2>Prior search results:</h2>
+                </div>
+
               </Col>
-            </Row>  
-            : 
-            null      
+            </Row>
+            :
+            null
           }
 
           {this.state.searchStatus === "some_results" ?
