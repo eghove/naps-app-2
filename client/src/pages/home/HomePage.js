@@ -29,7 +29,9 @@ class HomePage extends React.Component {
     // array that keeps the search results
     searchResults: [],
     // variable that keeps track of search status [searching, no_results, some_results],
-    searchStatus: null
+    searchStatus: null,
+    // variable to track if there was a past search in local storage
+    pastSearch: false
   }
 
   // ====HOME PAGE FUNCTIONS====
@@ -66,7 +68,7 @@ class HomePage extends React.Component {
                 } else {
                   this.setState({ searchResults: results.data.data },
                     () => {
-                      this.setState({ searchStatus: "some_results" });
+                      this.setState({ searchStatus: "some_results", pastSearch: false });
                       this.storeSearchResults(results.data.data)
                     }
                   )
@@ -94,7 +96,7 @@ class HomePage extends React.Component {
       () => {
         if (this.state.searchResults !== null) {
           // if something comes back for the stored search results, set the state so it's displayed
-          this.setState({ searchStatus: "some_results" })
+          this.setState({ searchStatus: "some_results", pastSearch: true })
         }
       })
   }
@@ -141,6 +143,15 @@ class HomePage extends React.Component {
             null
           }
 
+          {this.state.pastSearch === true ?
+            <Row >
+              <Col md={12} className={"text-holder"}>
+                <h2>Prior search results:</h2>
+              </Col>
+            </Row>  
+            : 
+            null      
+          }
 
           {this.state.searchStatus === "some_results" ?
             <ResultsDisplay>
