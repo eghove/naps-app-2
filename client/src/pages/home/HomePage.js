@@ -12,6 +12,7 @@ import LoadingSpinner from '../../shared_components/LoadingSpinner/LoadingSpinne
 import api from '../../utils/api';
 // import local styling
 import './homepage.css';
+import NoResults from './components/NoResults/NoResults';
 
 
 
@@ -52,11 +53,19 @@ class HomePage extends React.Component {
       },
         () => {
           // set the searchStatus
-          this.setState({searchStatus: "searching"});
+          this.setState({ searchStatus: "searching" });
           api.keywordSearch(this.state.searchedTerm)
-            .then(results => this.setState({ searchResults: results.data.data }, 
-              () => this.setState({searchStatus: "some_results"})))
-            // .then(results=> console.log(results.data.data))
+            .then(
+              results => {
+                if (results.data.total === "0") {
+                  this.setState({ searchStatus: "no_results" });
+                } else {
+                  this.setState({ searchResults: results.data.data },
+                    () => this.setState({ searchStatus: "some_results" })
+                  )
+                }
+              }
+            )
             .catch(error => console.log(error));
         });
     }
@@ -77,29 +86,47 @@ class HomePage extends React.Component {
             updateSearchedTerm={this.updateSearchedTerm}
 
           />
-          {this.state.searchStatus === "searching" ? 
+
+          {this.state.searchStatus === "searching" ?
             <Row>
               <Col className={"spinnerHolder"} md={12}>
                 <LoadingSpinner></LoadingSpinner>
               </Col>
             </Row>
             : null
-            }
-          <ResultsDisplay>
-            {this.state.searchResults.map(parks => {
-              return (
-                <ResultsDisplayItem
-                  park_name={parks.fullName}
-                  park_description={parks.description}
-                  park_code={parks.parkCode}
+          }
+
+          {this.state.searchStatus === "no_results" ?
+            <NoResults
+              customClass={"noResults"}
+              badSearchHeading={"No Parks Found"}
+              badSearchText={"You may wish to try fewer or different search terms."}
+            />
+            :
+            null
+          }
 
 
-                />
+          {this.state.searchStatus === "some_results" ?
+            <ResultsDisplay>
+              {this.state.searchResults.map(parks => {
+                return (
+                  <ResultsDisplayItem
+                    park_name={parks.fullName}
+                    park_description={parks.description}
+                    park_code={parks.parkCode}
+                  />
 
 
-              )
-            })}
-          </ResultsDisplay>
+                )
+              })}
+            </ResultsDisplay>
+            :
+            null
+
+          }
+
+
 
         </Col>
       </Row>
