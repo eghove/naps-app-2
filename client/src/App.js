@@ -26,12 +26,14 @@ class App extends React.Component {
       <div className="App">
         <Container>
           <NavBar></NavBar>
-          {console.log(this.state)}
-
           <Router>
             <Switch>
               <Route exact path="/" component={HomePage}/>
-              <Route exact path="/about" component={AboutPage} />
+              <Route 
+                exact path="/about" 
+                render={(props) => <AboutPage {...props}        
+                  updated_date={"2019-10-12"} />}
+              />
               <Route exact path="/details/:parkcode" component={DetailsPage} />
               <Route default component={Bad404Page} />
             </Switch>
