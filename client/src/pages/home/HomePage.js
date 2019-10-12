@@ -34,7 +34,9 @@ class HomePage extends React.Component {
 
   updateCurrentSearchTerm = (event) => {
     let value = event.target.value;
-    // TO DO: Some sort of parser to make sure the search term can be used by API
+    
+    // parser to make the search term something API can use
+    value = value.replace(/ +/g, '+');
 
     // set the state to the current term
     this.setState({ currentSearchTerm: value },
@@ -45,7 +47,7 @@ class HomePage extends React.Component {
     event.preventDefault();
 
     // TO DO: More logic checks to make sure
-    if (this.state.currentSearchTerm !== '') {
+    if (this.state.currentSearchTerm !== '' && this.state.currentSearchTerm !== '+') {
       this.setState({
         searchedTerm: this.state.currentSearchTerm,
         // clear out search results 
