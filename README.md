@@ -3,10 +3,11 @@ Version 2 of NaPS App.
 
 ## Planning
 ### Version 2.1 (Base Version) -- IN PROGRESS
-* User can search for national parks based on keyword or state.
+* User can search for national parks based on keyword.
 * App displays a list of results
-* When the user selects a park in the results list, they are provided with additional information about the park and a 5 or 7 day weather forecast.
+* When the user selects a park in the results list, they are provided with additional information about the park and a 3 to 5 day weather forecast.
 * Essentially three pages on the front end: Main page with the search and results, a detail page, and an About page
+* Local storage for last search results to ease navigation
 
 ### Version 2.2 (Authentication)
 * Base + authentication, likely through firebase.
@@ -17,3 +18,6 @@ Version 2 of NaPS App.
 
 ### Version 2.4 (Forum)
 * Above + allow signed in users to post comments about a given park.
+
+### Version 2.6 (Backend restructure)
+* Base + restructured backend to auto-query the park data base daily and save so the user isn't making the initial request each time they search. Speed up loading hopefully.
