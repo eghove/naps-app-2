@@ -34,7 +34,7 @@ class HomePage extends React.Component {
 
   updateCurrentSearchTerm = (event) => {
     let value = event.target.value;
-    
+
     // parser to make the search term something API can use
     value = value.replace(/ +/g, '+');
 
@@ -63,7 +63,10 @@ class HomePage extends React.Component {
                   this.setState({ searchStatus: "no_results" });
                 } else {
                   this.setState({ searchResults: results.data.data },
-                    () => this.setState({ searchStatus: "some_results" })
+                    () => {
+                      this.setState({ searchStatus: "some_results" });
+                      this.storeSearchResults(results.data.data)
+                    }
                   )
                 }
               }
@@ -72,6 +75,30 @@ class HomePage extends React.Component {
         });
     }
     else return;
+  }
+
+  // LOCAL STORAGE FUNCTIONS
+  storeSearchResults = (data) => {
+    localStorage.clear();
+    // console.log(data);
+    localStorage.setItem('park_search_results', JSON.stringify(data));
+  }
+
+  // get stored search results
+  getStoredSearchResults = () => {
+    let storedResults = localStorage.getItem('park_search_results');
+    storedResults = JSON.parse(storedResults);
+    this.setState({ searchResults: storedResults },
+      () => {
+        if (this.state.searchResults !== null) {
+          // if something comes back for the stored search results, set the state so it's displayed
+          this.setState({ searchStatus: "some_results" })
+        }
+      })
+  }
+
+  componentDidMount() {
+    this.getStoredSearchResults();
   }
 
   render() {
