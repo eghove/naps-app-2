@@ -1,0 +1,39 @@
+
+.homePage-container .jumbotron {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgba(224, 248, 255, 0.2);
+}
+
+.homePage-container .searchBarHolder {
+  margin-top: 2rem;
+}
+
+.homePage-container .list-group {
+  margin-top: 4rem;
+  text-align: left;
+  padding-bottom: 1rem;
+}
+
+.homePage-container .list-group-item{
+  margin-bottom: 1rem;
+}
+
+.homePage-container .spinnerHolder {
+  margin-top: 5rem;
+}
+
+.homePage-container .spinnerHolder .spinner-border{
+  width: 5rem; 
+  height: 5rem;
+}
+
+.homePage-container .text-holder h2 {
+  background-color: #e9ecef;
+  text-align: center;
+  opacity: .90;
+  padding: 1rem;
+  margin-top: 3rem;
+  border-radius: .3rem;
+}
