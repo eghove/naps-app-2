@@ -139,7 +139,7 @@ class DetailsPage extends React.Component {
 
 
 
-            {console.log(this.state.campgrounds)}
+         
           </Col>}
       </Row>
     )
