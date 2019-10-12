@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 // bootstrap components
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,6 +8,7 @@ import JumbotronHome from './components/JumbotronHome/JumbotronHome';
 import SearchBar from './components/SearchBar/SearchBar';
 import ResultsDisplay, { ResultsDisplayItem } from './components/ResultsDisplay/ResultsDisplay';
 import LoadingSpinner from '../../shared_components/LoadingSpinner/LoadingSpinner';
+
 
 // API utility
 import api from '../../utils/api';
@@ -104,6 +106,10 @@ class HomePage extends React.Component {
   render() {
     return (
       <Row className="homePage-container">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>NaPS App 2.0 Home</title>
+        </Helmet>
         <Col xs={12}>
           <JumbotronHome
             heading={"Welcome to NaPS App 2.0!"}
@@ -141,7 +147,7 @@ class HomePage extends React.Component {
               {this.state.searchResults.map(parks => {
                 return (
                   <ResultsDisplayItem
-                    key = {parks.parkCode}
+                    key={parks.parkCode}
                     park_name={parks.fullName}
                     park_description={parks.description}
                     park_code={parks.parkCode}

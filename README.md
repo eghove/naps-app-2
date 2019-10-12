@@ -44,6 +44,7 @@ NaPS App 2.0 uses the following technologies:
 * NodeJS,
 * React-Bootstrap,
 * React-Router,
+* React-Helmet,
 * Heroku,
 * an API provided by the National Parks Service (NPS), and
 * an API provided by the National Oceanic and Atmospheric Administration (NOAA).

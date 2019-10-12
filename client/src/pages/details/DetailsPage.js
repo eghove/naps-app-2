@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Helmet } from 'react-helmet';
 // custom components
 import BasicParkInfo from './components/BasicParkInfo/BasicParkInfo';
 import GeneralWeatherInfo from './components/GeneralWeatherInfo/GeneralWeatherInfo';
@@ -38,7 +39,7 @@ class DetailsPage extends React.Component {
     parkcode = parkcode.toString();
     api.weatherInfo(parkcode)
       .then(results => {
-        this.setState({ weatherForecast: results.data.properties.periods.slice(0,7) })
+        this.setState({ weatherForecast: results.data.properties.periods.slice(0, 7) })
       })
       .catch(error => console.log(error))
   }
@@ -74,6 +75,11 @@ class DetailsPage extends React.Component {
   render() {
     return (
       <Row className="detailsPage-container">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Details about {this.code}</title>
+        </Helmet>
+
         {this.state.npsBasicData.length === 0 || this.state.weatherForecast.length === 0 || this.state.campgroundsExist === null
           ?
           <Col className={"spinnerHolder"} md={12}>
@@ -81,9 +87,13 @@ class DetailsPage extends React.Component {
           </Col>
           :
           <Col md={12}>
+            <Helmet>
+              <meta charSet="utf-8" />
+              <title>Details about {this.state.npsBasicData.data[0].fullName}</title>
+            </Helmet>
             <BasicParkInfo
               heading={this.state.npsBasicData.data[0].fullName}
-              
+
             />
             <GeneralWeatherInfo
               weatherInfo={this.state.npsBasicData.data[0].weatherInfo}
@@ -110,19 +120,19 @@ class DetailsPage extends React.Component {
                       name={camp.name}
                       description={camp.description}
                       totalsites={camp.campsites.totalsites}
-                      tentsites = {camp.campsites.tentonly}
-                      electrical = {camp.campsites.electricalhookups}
-                      potablewater = {camp.amenities.potablewater[0]}
-                      showers = {camp.amenities.showers[0]}
-                      cellservice = {camp.amenities.cellphonereception}
-                      
+                      tentsites={camp.campsites.tentonly}
+                      electrical={camp.campsites.electricalhookups}
+                      potablewater={camp.amenities.potablewater[0]}
+                      showers={camp.amenities.showers[0]}
+                      cellservice={camp.amenities.cellphonereception}
+
                     />
-                    
+
                   )
                 })}
               </CampgroundsInfo>
-              
-              : 
+
+              :
               <NoCampgroundsFound></NoCampgroundsFound>
             }
 
