@@ -8,12 +8,14 @@ import HomePage from './pages/home/HomePage';
 import DetailsPage from './pages/details/DetailsPage';
 import Bad404Page from './pages/bad_404/Bad404Page';
 
+
 // shared components
 import NavBar from './shared_components/NavBar/NavBar';
 
 // styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import SignUpPage from './pages/signup/signupPage';
 
 
 
@@ -29,6 +31,7 @@ class App extends React.Component {
           <Router>
             <Switch>
               <Route exact path="/" component={HomePage}/>
+              <Route exact path="/signup" component={SignUpPage} />
               <Route 
                 exact path="/about" 
                 render={(props) => <AboutPage {...props}        
