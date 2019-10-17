@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { withFirebase } from '../../shared_components/Firebase';
 
 
@@ -96,12 +96,12 @@ class SignUpFormBase extends Component {
     );
   }
 }
-// const SignUpLink = () => (
-//   <p>
-//     Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
-//   </p>
-// );
+const SignUpLink = () => (
+  <p>
+    Don't have an account? <Link to={"/signup"}>Sign Up</Link>
+  </p>
+);
 
 const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 export default SignUpPage;
-export { SignUpForm };
+export { SignUpForm, SignUpLink };

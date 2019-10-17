@@ -16,6 +16,7 @@ import NavBar from './shared_components/NavBar/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import SignUpPage from './pages/signup/signupPage';
+import SignInPage from './pages/signin/signinPage';
 
 
 
@@ -32,6 +33,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={HomePage}/>
               <Route exact path="/signup" component={SignUpPage} />
+              <Route exact path="/signin" component={SignInPage} />
               <Route 
                 exact path="/about" 
                 render={(props) => <AboutPage {...props}        
