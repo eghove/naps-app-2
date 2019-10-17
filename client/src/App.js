@@ -22,7 +22,12 @@ import SignInPage from './pages/signin/signinPage';
 
 
 class App extends React.Component {
- 
+  constructor(props) {
+    super(props);
+    this.state = {
+      authUser: null,
+    };
+  }
 
   render() {
     return (
@@ -31,12 +36,12 @@ class App extends React.Component {
           <NavBar></NavBar>
           <Router>
             <Switch>
-              <Route exact path="/" component={HomePage}/>
+              <Route exact path="/" component={HomePage} />
               <Route exact path="/signup" component={SignUpPage} />
               <Route exact path="/signin" component={SignInPage} />
-              <Route 
-                exact path="/about" 
-                render={(props) => <AboutPage {...props}        
+              <Route
+                exact path="/about"
+                render={(props) => <AboutPage {...props}
                   updated_date={"2019-10-12"} />}
               />
               <Route exact path="/details/:parkcode" component={DetailsPage} />
