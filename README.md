@@ -4,7 +4,7 @@ Version 2 of NaPS App.
 ## About NaPS App 2.0
 NaPS App 2.0 is a project by Eric Hove. It is an extension of the original NaPS App built by Eric Hove, Alan Wagner, and Andrew Burns.
 
-NaPS App 2.0 aims to make the public data hosted by the National Parks Service (NPS) and the National Oceanic and Atmospheric Administration (NOAA) accessible to users planning a trip to a National Park in the United States.
+NaPS App 2.0 aims to make the public data hosted by the National Parks Service (NPS) and the National Oceanic and Atmospheric Administration (NOAA) accessible to users planning a trip to a National Park in the United States. Users can search for a National Park using keywords. Users can select a result to learn more about the park selected, including information about campgrounds and an upcoming weather forecast provided by NOAA. Prior search results are saved using the user's local storage easing navigation.
 
 Additional updates are coming.
 
@@ -23,11 +23,13 @@ A deployed version may be found at: https://safe-waters-09131.herokuapp.com/ .
 * Essentially three pages on the front end: Main page with the search and results, a detail page, and an About page
 * Local storage for last search results to ease navigation
 
-### To-Do
+### In-Progress
 
 #### Version 2.b (Authentication) --STARTED 2019-10-13
 * Done + authentication, likely through firebase.
 * Additional page for login, sign-up.
+
+### To-Do/Forthcoming
 
 #### Version 2.c (Favorites)
 * Done + allow signed in user to save 'favorite' parks.
@@ -48,15 +50,28 @@ A deployed version may be found at: https://safe-waters-09131.herokuapp.com/ .
 * Done + Google Maps API Integration for directions.
 
 
-
-
 ## Technologies Used
 NaPS App 2.0 uses the following technologies:
 * ReactJS,
 * NodeJS,
+* ExpressJS,
 * React-Bootstrap,
 * React-Router,
 * React-Helmet,
 * Heroku,
 * an API provided by the National Parks Service (NPS), and
 * an API provided by the National Oceanic and Atmospheric Administration (NOAA).
+
+## What Does NaPS App 2.0 Look Like?
+![Main Screen](https://eghove.github.io/img/portfolio/naps-app-v2-Main_Screen.PNG "Main Screen")
+
+![Search Results](https://eghove.github.io/img/portfolio/naps-app-v2-Search_Results.PNG "Search Results")
+
+![Park and Weather Information](https://eghove.github.io/img/portfolio/naps-app-v2-Weather.PNG "Park and Weather Information")
+
+![Park Campground Information](https://eghove.github.io/img/portfolio/naps-app-v2-Campgrounds.PNG "Park Campground Information")
+
+![Prior Search Results](https://eghove.github.io/img/portfolio/naps-app-v2-Campgrounds.PNG "Park Campground Information")
+
+
+
