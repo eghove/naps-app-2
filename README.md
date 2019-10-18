@@ -71,7 +71,7 @@ NaPS App 2.0 uses the following technologies:
 
 ![Park Campground Information](https://eghove.github.io/img/portfolio/naps-app-v2-Campgrounds.PNG "Park Campground Information")
 
-![Prior Search Results](https://eghove.github.io/img/portfolio/naps-app-v2-Campgrounds.PNG "Park Campground Information")
+![Prior Search Results](https://eghove.github.io/img/portfolio/naps-app-v2-Prior_Results.PNG "Park Campground Information")
 
 
 
