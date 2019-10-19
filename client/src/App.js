@@ -15,11 +15,8 @@ import NavBar from './shared_components/NavBar/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-
-
-
 class App extends React.Component {
- 
+
 
   render() {
     return (
@@ -28,10 +25,10 @@ class App extends React.Component {
           <NavBar></NavBar>
           <Router>
             <Switch>
-              <Route exact path="/" component={HomePage}/>
-              <Route 
-                exact path="/about" 
-                render={(props) => <AboutPage {...props}        
+              <Route exact path="/" component={HomePage} />
+              <Route
+                exact path="/about"
+                render={(props) => <AboutPage {...props}
                   updated_date={"2019-10-12"} />}
               />
               <Route exact path="/details/:parkcode" component={DetailsPage} />
