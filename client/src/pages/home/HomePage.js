@@ -7,14 +7,16 @@ import Col from 'react-bootstrap/Col';
 import JumbotronHome from './components/JumbotronHome/JumbotronHome';
 import SearchBar from './components/SearchBar/SearchBar';
 import ResultsDisplay, { ResultsDisplayItem } from './components/ResultsDisplay/ResultsDisplay';
+import NoResults from './components/NoResults/NoResults';
 import LoadingSpinner from '../../shared_components/LoadingSpinner/LoadingSpinner';
 
 
 // API utility
 import api from '../../utils/api';
+
 // import local styling
 import './homepage.css';
-import NoResults from './components/NoResults/NoResults';
+
 
 
 
@@ -50,7 +52,7 @@ class HomePage extends React.Component {
   updateSearchedTerm = (event) => {
     event.preventDefault();
 
-    // TO DO: More logic checks to make sure
+    // logic checks
     if (this.state.currentSearchTerm !== '' && this.state.currentSearchTerm !== '+') {
       this.setState({
         searchedTerm: this.state.currentSearchTerm,
@@ -123,7 +125,6 @@ class HomePage extends React.Component {
             placeholder={"Search for a National Park using keywords! (Try 'Grand')"}
             updateCurrentSearch={this.updateCurrentSearchTerm}
             updateSearchedTerm={this.updateSearchedTerm}
-
           />
 
           {this.state.searchStatus === "searching" ?
@@ -151,7 +152,6 @@ class HomePage extends React.Component {
                 <div className={"text-holder"}>
                   <h2>Prior search results:</h2>
                 </div>
-
               </Col>
             </Row>
             :
@@ -168,18 +168,12 @@ class HomePage extends React.Component {
                     park_description={parks.description}
                     park_code={parks.parkCode}
                   />
-
-
                 )
               })}
             </ResultsDisplay>
             :
             null
-
           }
-
-
-
         </Col>
       </Row>
     )

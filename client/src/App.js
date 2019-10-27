@@ -18,9 +18,6 @@ import './App.css';
 import SignUpPage from './pages/signup/signupPage';
 import SignInPage from './pages/signin/signinPage';
 
-
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);

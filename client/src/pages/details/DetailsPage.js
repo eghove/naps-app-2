@@ -7,12 +7,13 @@ import BasicParkInfo from './components/BasicParkInfo/BasicParkInfo';
 import GeneralWeatherInfo from './components/GeneralWeatherInfo/GeneralWeatherInfo';
 import DetailedWeatherForecast, { WeatherForecastItem } from './components/DetailedWeatherForecast/DetailedWeatherForecast'
 import CampgroundsInfo, { CampgroundItem, NoCampgroundsFound } from './components/CampgroundsInfo/CampgroundsInfo';
+import LoadingSpinner from '../../shared_components/LoadingSpinner/LoadingSpinner';
 
 // utilities
 import api from '../../utils/apiParkDetail';
 // styling
 import './detailsPage.css';
-import LoadingSpinner from '../../shared_components/LoadingSpinner/LoadingSpinner';
+
 
 
 class DetailsPage extends React.Component {
@@ -24,6 +25,7 @@ class DetailsPage extends React.Component {
     campgroundsExist: null
   }
 
+  // get the park code from params.
   code = this.props.match.params.parkcode;
 
   update_npsBasicData = (parkcode) => {
@@ -56,7 +58,7 @@ class DetailsPage extends React.Component {
             }
           )
         }
-        // some parks don't have campground, need to figure out how to account for that.
+        // some parks don't have campground, need to account for that.
         else {
           this.setState({ campgroundsExist: false })
         }
@@ -135,10 +137,6 @@ class DetailsPage extends React.Component {
               :
               <NoCampgroundsFound></NoCampgroundsFound>
             }
-
-
-
-
          
           </Col>}
       </Row>
