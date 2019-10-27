@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
+import { withFirebase } from './shared_components/Firebase';
 
 // pages
 import AboutPage from './pages/about/AboutPage';
@@ -26,11 +27,24 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.listener = this.props.firebase.auth.onAuthStateChanged(
+      authUser => {
+        authUser
+          ? this.setState({ authUser })
+          : this.setState({ authUser: null });
+      },
+    );
+  }
+  componentWillUnmount() {
+    this.listener();
+  }
+  
   render() {
     return (
       <div className="App">
         <Container>
-          <NavBar></NavBar>
+          <NavBar authUser={this.state.authUser}></NavBar>
           <Router>
             <Switch>
               <Route exact path="/" component={HomePage} />
@@ -57,4 +71,4 @@ class App extends React.Component {
 
 }
 
-export default App;
+export default withFirebase(App);
