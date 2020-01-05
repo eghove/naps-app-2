@@ -49,6 +49,8 @@ A deployed version may be found at: https://safe-waters-09131.herokuapp.com/ .
 #### Version 2.h (Google Maps Integration)
 * Done + Google Maps API Integration for directions.
 
+#### Version 2.i (state cleanup)
+* Done + state cleanup using Redux or React's ContextAPI
 
 ## Technologies Used
 NaPS App 2.0 uses the following technologies:
