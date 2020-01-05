@@ -16,6 +16,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 class App extends React.Component {
+  // setting up app level state, working on moving some of the state from HomePage up into the App level.
+
+  state = {
+    _searchedTerm: ""
+  };
+
+  handleSearchedTerm = value => {
+    this.setState({ _searchedTerm: value }, () =>
+      console.log(this.state._searchedTerm)
+    );
+  };
+
   render() {
     return (
       <div className="App">
@@ -23,7 +35,17 @@ class App extends React.Component {
           <Router>
             <NavBar></NavBar>
             <Switch>
-              <Route exact path="/" component={HomePage} />
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <HomePage
+                    {...props}
+                    masterSearchedTerm={this.handleSearchedTerm}
+                    searchedTerm={this.state._searchedTerm}
+                  />
+                )}
+              />
               <Route
                 exact
                 path="/about"
