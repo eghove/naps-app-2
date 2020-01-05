@@ -1,24 +1,30 @@
-import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+// react ui components
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
-
-
-
-function NavBar() {
+const NavBar = () => {
   return (
-    <Navbar bg="light" expand="lg" >
-      <Navbar.Brand href="/">NaPS App 2.0</Navbar.Brand>
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand>
+        <NavLink className="navbar-brand" to="/">
+          NaPS App 2.0
+        </NavLink>
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/about">About</Nav.Link>
+          <NavLink className="nav-link" exact to="/">
+            Home
+          </NavLink>
+          <NavLink className="nav-link" to="/about">
+            About
+          </NavLink>
         </Nav>
-        
       </Navbar.Collapse>
     </Navbar>
-  )
-}
+  );
+};
 
 export default NavBar;
