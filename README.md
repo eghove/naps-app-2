@@ -25,7 +25,7 @@ A deployed version may be found at: https://safe-waters-09131.herokuapp.com/ .
 
 ### In-Progress
 
-#### Version 2.b (Authentication) --STARTED 2019-10-13
+#### Version 2.b (Authentication) --STARTED 2019-10-13; PAUSED 2020-01-05
 * Done + authentication, likely through firebase.
 * Additional page for login, sign-up.
 
@@ -49,8 +49,8 @@ A deployed version may be found at: https://safe-waters-09131.herokuapp.com/ .
 #### Version 2.h (Google Maps Integration)
 * Done + Google Maps API Integration for directions.
 
-#### Version 2.i (state cleanup)
-* Done + state cleanup using Redux or React's ContextAPI
+#### Version 2.i (state cleanup) --STARTED 2020-01-05
+* Done + state cleanup using Redux or React's ContextAPI (possibly)
 
 ## Technologies Used
 NaPS App 2.0 uses the following technologies:
