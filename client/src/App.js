@@ -20,11 +20,21 @@ class App extends React.Component {
 
   state = {
     searchedTerm: "",
-    searchResults: []
+    searchHistory: []
   };
 
+  // state updaters
   handleSearchedTerm = value => {
     this.setState({ searchedTerm: value });
+  };
+
+  updateSearchHistory = newItem => {
+    this.setState(
+      { searchHistory: [...this.state.searchHistory, newItem] },
+      () => {
+        console.log(this.state.searchHistory);
+      }
+    );
   };
 
   render() {
@@ -41,6 +51,7 @@ class App extends React.Component {
                   <HomePage
                     {...props}
                     handleSearchedTerm={this.handleSearchedTerm}
+                    updateSearchHistory={this.updateSearchHistory}
                     searchedTerm={this.state.searchedTerm}
                   />
                 )}

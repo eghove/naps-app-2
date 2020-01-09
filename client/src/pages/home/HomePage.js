@@ -21,11 +21,9 @@ import "./homepage.css";
 class HomePage extends React.Component {
   // ====SETTING STATE====
   state = {
-    // STATE VALUES MOVING UP
+    // LOCAL STATE VALUES THAT STAY HERE IN THIS COMPONENT
     // array that keeps the search results
     searchResults: [],
-
-    // STATE VALUES THAT STAY HERE IN THIS COMPONENT
     // keeps track of what the user types in the search bar
     currentSearchTerm: "",
     // variable that keeps track of search status [searching, no_results, some_results],
@@ -56,6 +54,8 @@ class HomePage extends React.Component {
     ) {
       // calls the app level updater
       this.props.handleSearchedTerm(this.state.currentSearchTerm);
+      // calls the app level search history updater
+      this.props.updateSearchHistory(this.state.currentSearchTerm);
       this.setState(
         {
           // clear out search results
