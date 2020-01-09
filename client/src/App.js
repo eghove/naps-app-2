@@ -19,13 +19,12 @@ class App extends React.Component {
   // setting up app level state, working on moving some of the state from HomePage up into the App level.
 
   state = {
-    _searchedTerm: ""
+    searchedTerm: "",
+    searchResults: []
   };
 
   handleSearchedTerm = value => {
-    this.setState({ _searchedTerm: value }, () =>
-      console.log(this.state._searchedTerm)
-    );
+    this.setState({ searchedTerm: value });
   };
 
   render() {
@@ -41,8 +40,8 @@ class App extends React.Component {
                 render={props => (
                   <HomePage
                     {...props}
-                    masterSearchedTerm={this.handleSearchedTerm}
-                    searchedTerm={this.state._searchedTerm}
+                    handleSearchedTerm={this.handleSearchedTerm}
+                    searchedTerm={this.state.searchedTerm}
                   />
                 )}
               />
