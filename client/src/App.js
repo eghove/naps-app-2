@@ -19,15 +19,22 @@ class App extends React.Component {
   // setting up app level state, working on moving some of the state from HomePage up into the App level.
 
   state = {
+    // searchTerm tracks the last successful search term
     searchedTerm: "",
-    searchHistory: []
+    // searchHistory stores an array of successful search terms
+    searchHistory: [],
+    // storedSearchResults stores the search results of the last successful search
+    storedSearchResults: []
   };
 
-  // state updaters
+  // === STATE UPDATER FUNCTIONS
+
+  // handleSearchedTerm passes the successful searchTerm up to the App-level state
   handleSearchedTerm = value => {
     this.setState({ searchedTerm: value });
   };
 
+  // updateSearchHistory takes each successful search term and appends it to an historical array of search terms
   updateSearchHistory = newItem => {
     this.setState(
       { searchHistory: [...this.state.searchHistory, newItem] },
@@ -35,6 +42,11 @@ class App extends React.Component {
         console.log(this.state.searchHistory);
       }
     );
+  };
+
+  // updateStoredSearchResult stores the array of the last set of search results for retrieval.
+  updateStoredSearchResults = array => {
+    this.setState({ storedSearchResults: array });
   };
 
   render() {
@@ -50,9 +62,13 @@ class App extends React.Component {
                 render={props => (
                   <HomePage
                     {...props}
+                    // passing down updaters
                     handleSearchedTerm={this.handleSearchedTerm}
                     updateSearchHistory={this.updateSearchHistory}
+                    updateStoredSearchResults={this.updateStoredSearchResults}
+                    // passing down state values
                     searchedTerm={this.state.searchedTerm}
+                    storedSearchResults={this.state.storedSearchResults}
                   />
                 )}
               />

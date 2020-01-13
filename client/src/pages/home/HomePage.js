@@ -77,7 +77,7 @@ class HomePage extends React.Component {
                     searchStatus: "some_results",
                     pastSearch: false
                   });
-                  this.storeSearchResults(results.data.data);
+                  this.props.updateStoredSearchResults(results.data.data);
                 });
               }
             })
@@ -87,27 +87,14 @@ class HomePage extends React.Component {
     } else return;
   };
 
-  // LOCAL STORAGE FUNCTIONS
-  storeSearchResults = data => {
-    localStorage.clear();
-    // console.log(data);
-    localStorage.setItem("park_search_results", JSON.stringify(data));
-  };
-
-  // get stored search results
-  getStoredSearchResults = () => {
-    let storedResults = localStorage.getItem("park_search_results");
-    storedResults = JSON.parse(storedResults);
-    this.setState({ searchResults: storedResults }, () => {
-      if (this.state.searchResults !== null) {
-        // if something comes back for the stored search results, set the state so it's displayed
-        this.setState({ searchStatus: "some_results", pastSearch: true });
-      }
-    });
-  };
-
   componentDidMount() {
-    this.getStoredSearchResults();
+    if (this.props.storedSearchResults.length > 0) {
+      this.setState({
+        searchStatus: "some_results",
+        pastSearch: true,
+        searchResults: this.props.storedSearchResults
+      });
+    }
   }
 
   render() {
